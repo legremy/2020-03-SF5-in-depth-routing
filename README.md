@@ -1,6 +1,6 @@
 # 2020-03-SF5-in-depth-routing
 
-An in-depth series of tutorials on How to understand Symfony 5
+An in-depth series of tutorials on how to understand Symfony 5
 
 Today : the Routing Component. This tutorial contains:
 
