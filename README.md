@@ -2,7 +2,7 @@
 
 An in-depth series of tutorials on how to understand Symfony 5
 
-Today : the Routing Component. This tutorial contains:
+Today : the **Routing Component**. This tutorial contains:
 
 * Basic usages of the Route, RouteCollection and UrlMatcher classes
 * Route in-depth: path, parameters, defaults, requirements, options, methods, host, schemes
