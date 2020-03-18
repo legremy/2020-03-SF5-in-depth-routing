@@ -1,6 +1,6 @@
 <?php
 $data = require_once "data.php";
-$id = $currentRoute['id'];
+$id = $route['id'];
 if (!$id || !array_key_exists($id, $data)) {
     throw new Exception("La tâche demandée n'existe pas !");
 }

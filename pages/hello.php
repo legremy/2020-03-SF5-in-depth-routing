@@ -11,7 +11,7 @@
 
 <body>
     <div class="container">
-        <h1>Hello World</h1>
+        <h1>Hello <?= $name; ?></h1>
         <a href="index.php">Retour à la liste</a>
     </div>
 </body>
