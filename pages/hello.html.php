@@ -12,7 +12,7 @@
 <body>
     <div class="container">
         <h1>Hello <?= $name; ?></h1>
-        <a href="index.php">Retour à la liste</a>
+        <p><a href="<?= $this->generator->generate('list'); ?>">Retour à la liste</a></p>
     </div>
 </body>
 

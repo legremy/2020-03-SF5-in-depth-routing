@@ -13,11 +13,11 @@ use Symfony\Component\Routing\RouteCollection;
 
 require 'vendor/autoload.php';
 
-$listRoute = new Route('/', ['_controller' => [new TaskController, 'index']]);
-$showRoute = new Route('/show/{id}', ['_controller' => [new TaskController, 'show']], ['id' => '\d+']);
-$createRoute = new Route('/create',  ['_controller' => [new TaskController, 'index']], [], [], '', [], ['GET', 'POST']);
+$listRoute = new Route('/', ['_controller' => 'task@index']);
+$showRoute = new Route('/show/{id}', ['_controller' => 'task@show'], ['id' => '\d+']);
+$createRoute = new Route('/create',  ['_controller' => 'task@create'], [], [], '', [], ['GET', 'POST']);
 
-$helloRoute = new Route('/hello/{name}', ['name' => 'World',  '_controller' => [new HelloController, 'sayHello']]);
+$helloRoute = new Route('/hello/{name}', ['name' => 'World',  '_controller' => 'hello@sayHello']);
 
 $routes = new RouteCollection();
 
@@ -34,10 +34,11 @@ $pathinfo = $_SERVER['PATH_INFO'] ?? '/';
 
 try {
     $currentRoute = $matcher->match($pathinfo);
-    $currentRoute['generator'] = $generator;
 } catch (ResourceNotFoundException $e) {
-    require 'pages/404.php';
+    require 'pages/404.html.php';
     return;
 }
 
-call_user_func($currentRoute['_controller'], $currentRoute);
+$controller = 'App\Controller\\' . ucfirst(explode('@', $currentRoute['_controller'])[0]) . "Controller";
+$method = explode('@', $currentRoute['_controller'])[1];
+call_user_func([new $controller($currentRoute, $generator), $method]);

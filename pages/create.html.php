@@ -1,9 +1,3 @@
-<?php
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    var_dump("Bravo, le formulaire est soumis (TODO : traiter les données)", $_POST);
-    return;
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,7 +12,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <body>
     <div class="container">
-
+        <?php if (!empty($data)) : ?>
+            <div class="jumbotron">
+                <p class="lead">Bravo, le formulaire a été soumis.</p>
+                <p>Il resterait à traiter les données ci-dessous</p>
+                <code>
+                    <pre><?php var_dump($data); ?></pre>
+                </code>
+            </div>
+        <?php endif; ?>
         <h1>Créer une nouvelle tâche</h1>
 
         <form action="" method="POST">
@@ -45,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
         </form>
 
-        <a href="<?= $generator->generate('list'); ?>">Retour à la liste</a>
+        <a href="<?= $this->generator->generate('list'); ?>">Retour à la liste</a>
     </div>
 </body>
 

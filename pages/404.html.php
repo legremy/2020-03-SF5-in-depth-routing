@@ -12,7 +12,7 @@
 <body>
     <div class="container">
         <h1>Ooops ! La page demandée n'existe pas !</h1>
-        <p><a href="<?= $generator->generate('list'); ?>">Retour à la liste</a></p>
+        <p><a href="<?= $this->generator->generate('list'); ?>">Retour à la liste</a></p>
     </div>
 </body>
 

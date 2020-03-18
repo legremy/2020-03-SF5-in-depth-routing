@@ -2,11 +2,12 @@
 
 namespace App\Controller;
 
-class HelloController
+use Symfony\Component\Routing\Generator\UrlGenerator;
+
+class HelloController extends Controller
 {
-    public function sayHello(array $route)
+    public function sayHello()
     {
-        $name = $route['name'];
-        require "pages/{$route['_route']}.php";
+        $this->render(['name' => $this->currentRoute['name']]);
     }
 }

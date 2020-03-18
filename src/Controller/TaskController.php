@@ -2,23 +2,33 @@
 
 namespace App\Controller;
 
-class TaskController
+use Exception;
+
+class TaskController extends Controller
 {
-    public function index(array $route)
+    public function index()
     {
-        $generator = $route['generator'];
-        require "pages/{$route['_route']}.php";
+        $data = require_once 'data.php';
+        $this->render(["data" => $data]);
     }
 
-    public function show(array $route)
+    public function show()
     {
-        $generator = $route['generator'];
-        require "pages/{$route['_route']}.php";
+        $data = require_once "data.php";
+        $id = $this->currentRoute['id'];
+        if (!$id || !array_key_exists($id, $data)) {
+            throw new Exception("La tâche demandée n'existe pas !");
+        }
+        $task = $data[$id];
+        $this->render(["task" => $task]);
     }
 
-    public function create(array $route)
+    public function create()
     {
-        $generator = $route['generator'];
-        require "pages/{$route['_route']}.php";
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $this->render(['data' => $_POST]);
+            return;
+        }
+        $this->render();
     }
 }

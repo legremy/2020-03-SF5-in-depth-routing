@@ -1,11 +1,3 @@
-<?php
-$data = require_once "data.php";
-$id = $route['id'];
-if (!$id || !array_key_exists($id, $data)) {
-    throw new Exception("La tâche demandée n'existe pas !");
-}
-$task = $data[$id];
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,8 +17,8 @@ $task = $data[$id];
         <p>
             La tâche est <strong><?= $task['completed'] ? "complétée" : "encore à faire" ?> !</strong>
         </p>
-        <p><a href="<?= $generator->generate('create'); ?>">Créer une autre tâche</a></p>
-        <p><a href="<?= $generator->generate('list'); ?>">Retour à la liste</a></p>
+        <p><a href="<?= $this->generator->generate('create'); ?>">Créer une autre tâche</a></p>
+        <p><a href="<?= $this->generator->generate('list'); ?>">Retour à la liste</a></p>
     </div>
 </body>
 

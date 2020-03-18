@@ -1,6 +1,3 @@
-<?php
-$data = require_once 'data.php';
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,12 +14,12 @@ $data = require_once 'data.php';
 
         <h1>Liste des tâches</h1>
 
-        <a href="<?= $generator->generate('create'); ?>">Créer une tâche</a>
+        <a href="<?= $this->generator->generate('create'); ?>">Créer une tâche</a>
 
         <?php foreach ($data as $id => $task) : ?>
             <h2><?= $task['title'] ?> (<?= $task['completed'] ? "Complète" : "Incomplète" ?>)</h2>
             <small>Priorité : <?= $task['priority'] ?></small><br>
-            <a href="<?= $generator->generate('show', ["id" => $id]); ?>">En savoir plus</a>
+            <a href="<?= $this->generator->generate('show', ["id" => $id]); ?>">En savoir plus</a>
             <hr>
         <?php endforeach ?>
     </div>
