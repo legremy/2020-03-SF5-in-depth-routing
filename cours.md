@@ -193,7 +193,9 @@ $method = explode('@', $route['controller'])[1];
 call_user_func([new $controller, $method], $route);
 ```
 
-### Extraire la configuration des routes
+## Configurer les routes
+
+### Configurer au format PHP
 
 On utilise le bundle `symfony/config`.
 
@@ -229,7 +231,7 @@ return function (RoutingConfigurator $configurator) {
 };
 ```
 
-### Extraire la configuration au format YAML
+### Configurer au format YAML
 
 Utilisation du bundle `symfony/yaml`. La mise en place est très semblable à l'exemple précédent:
 
