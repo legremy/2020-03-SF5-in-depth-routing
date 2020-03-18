@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
         </form>
 
-        <a href="index.php">Retour à la liste</a>
+        <a href="<?= $generator->generate('list'); ?>">Retour à la liste</a>
     </div>
 </body>
 
