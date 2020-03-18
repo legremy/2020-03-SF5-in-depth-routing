@@ -12,9 +12,9 @@ Today : the Routing Component. This tutorial contains:
 * How to extract Routes configurations: PHP, YAML or Annotation
 
 Use tags to navigate between the different versions
-* initial-version : the basic application, without any Routing in it
-* basic-routing-implementation : the refactored application that uses symfony/routing in a basic way
-* controller-based-routing-implementation : the refactored application, that tries to link symfony/routing and basic controllers
-* php-routing-configuration : the PHP way of configuring routes
-* yaml-routing-configuration : the YAML way of configuring routes
-* annotation-routing-configuration : the Annotation way of configuring routes
+* `initial-version` : the basic application, without any Routing in it
+* `basic-routing-implementation` : the refactored application that uses symfony/routing in a basic way
+* `controller-based-routing-implementation` : the refactored application, that tries to link symfony/routing and basic controllers
+* `php-routing-configuration` : the PHP way of configuring routes
+* `yaml-routing-configuration` : the YAML way of configuring routes
+* `annotation-routing-configuration` : the Annotation way of configuring routes
